@@ -15,3 +15,7 @@
 ### Ranger
 
 ![screenshot_ranger](./screenshots/ss_ranger.png)
+
+### Images inside nvim
+
+![screenshot_image_nvim](./screenshots/ss_image_nvim.png)
