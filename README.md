@@ -4,6 +4,10 @@
 
 ## Editor: Neovim
 
+### Neofetch
+
+![screenshot](./screenshots/ss_neofetch.png)
+
 ### Neovim directory with oil
 
 ![screenshot](./screenshots/ss_kitty_nvim.png)

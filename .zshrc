@@ -166,3 +166,7 @@ bindkey '^E' run_ranger
 
 # opam configuration
 [[ ! -r /home/kumang/.opam/opam-init/init.zsh ]] || source /home/kumang/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# Starship
+# eval "$(starship init zsh)"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

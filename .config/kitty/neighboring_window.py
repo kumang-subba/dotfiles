@@ -4,22 +4,20 @@ modify_font             underline_position 3
 modify_font             underline_thickness 200%
 
 cursor_blink_interval   0
-shell_integration       enabled
+shell_integration       no-cursor
 
 remember_window_size    no
-initial_window_width    1830
-initial_window_height   906
+initial_window_width    1843
+initial_window_height   900
 enabled_layouts         fat:bias=80;full_size=1
 placement_strategy      center
 hide_window_decorations yes
 background_opacity      0.9
-window_margin_width     2
-window_padding_width    2
-single_window_padding_width   -1
-single_window_margin_width    -1
+window_margin_width     8
+window_margin_height    2 0
+window_padding_width    10
 
 dynamic_background_opacity    yes
-background_blur 1
 
 # MAPS
 map ctrl+t              launch --cwd=current
@@ -31,12 +29,12 @@ map ctrl+left           resize_window narrower
 map ctrl+right          resize_window wider
 map ctrl+shift+up       resize_window taller 3
 map ctrl+shift+down     resize_window shorter 3
-map shift+alt+j         scroll_line_down
-map shift+alt+k         scroll_line_up
+map ctrl+shift+j        scroll_line_down
+map ctrl+shift+k        scroll_line_up
 map ctrl+shift+r        no_op
 map ctrl+shift+e        no_op
-map ctrl+shift+d        set_background_opacity +0.05
-map ctrl+shift+b        set_background_opacity -0.05
+map ctrl+shift+d        set_background_opacity +0.1
+map ctrl+shift+b        set_background_opacity -0.1
 
 # The basic colors
 foreground              #cdd6f4
@@ -52,10 +50,9 @@ cursor_text_color       #1e1e2e
 url_color               #f5e0dc
 
 # Kitty window border colors
-window_border_width     0
-active_border_color     none
-# inactive_border_color   none
-# bell_border_color       none
+active_border_color     #b4befe
+inactive_border_color   #6c7086
+bell_border_color       #f9e2af
 
 # OS Window titlebar colors
 wayland_titlebar_color system
@@ -136,27 +133,15 @@ map --when-focus-on var:IS_NVIM ctrl+h
 map --when-focus-on var:IS_NVIM ctrl+l
 
 # the 3 here is the resize amount, adjust as needed
-map ctrl+shift+j kitten relative_resize.py down  3
-map ctrl+shift+k kitten relative_resize.py up    3
-map ctrl+shift+h kitten relative_resize.py left  3
-map ctrl+shift+l kitten relative_resize.py right 3
+map alt+j kitten relative_resize.py down  3
+map alt+k kitten relative_resize.py up    3
+map alt+h kitten relative_resize.py left  3
+map alt+l kitten relative_resize.py right 3
 
-map --when-focus-on var:IS_NVIM ctrl+shift+j
-map --when-focus-on var:IS_NVIM ctrl+shift+k
-map --when-focus-on var:IS_NVIM ctrl+shift+h
-map --when-focus-on var:IS_NVIM ctrl+shift+l
+map --when-focus-on var:IS_NVIM alt+j
+map --when-focus-on var:IS_NVIM alt+k
+map --when-focus-on var:IS_NVIM alt+h
+map --when-focus-on var:IS_NVIM alt+l
 
 allow_remote_control yes
 listen_on unix:@mykitty
-
-# Kitty scrollback nvim
-
-# kitty-scrollback.nvim Kitten alias
-action_alias kitty_scrollback_nvim kitten /home/kumang/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py
-
-# Browse scrollback buffer in nvim
-map kitty_mod+h kitty_scrollback_nvim
-# Browse output of the last shell command in nvim
-map kitty_mod+g kitty_scrollback_nvim --config ksb_builtin_last_cmd_output
-# Show clicked command output in nvim
-mouse_map ctrl+shift+right press ungrabbed combine : mouse_select_command_output : kitty_scrollback_nvim --config ksb_builtin_last_visited_cmd_output
