@@ -1,36 +1,21 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-export NVM_DIR=$HOME/.nvm
-export VISUAL=nvim
-export EDITOR=nvim
+export PATH=$HOME/.cargo/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export EDITOR=nvim
+export VISUAL=nvim
+
+export ANDROID_HOME=$HOME/Android/Sdk
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-source ~/.oh-my-zsh/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
+ZSH_THEME="robbyrussell"
 
-# now load zsh-syntax-highlighting plugin
-# CLANG
-export CC=clang
-export CXX=clang++
-
-# Android SDK
-export ANDROID_HOME=$HOME/Android/Sdk
-
-export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -94,8 +79,7 @@ export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
 plugins=(ubuntu sudo history nvm vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.nvm/nvm.sh
-
+# source ~/.nvm/nvm.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -111,34 +95,39 @@ source ~/.nvm/nvm.sh
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+neve(){
+  neovide "$@" & disown
+}
+
 alias nv="nvim"
-alias neve='f(){ neovide "$@"; unset -f f; exit;}; f'
 alias nev='neovide'
 alias nvz='nvim ~/.zshrc'
 alias nvk='nvim ~/.config/kitty/'
-alias cdc='f(){ cd ~/Documents/coding/cpp/"$@";}; f'
-alias cdj='f(){ cd ~/Documents/coding/js/"$@";}; f'
-alias cdp='f(){ cd ~/Documents/coding/cpp/"$@";}; f'
-alias cdm='f(){ cd ~/Documents/coding/mobile/"$@";}; f'
+alias mkc='f(){ mkdir "$@" && cd "$@";}; f'
 alias e="exit"
-alias vse='f(){ code "$@"; unset -f f; exit;}; f'
-alias vs='f(){ code "$@";}; f'
 alias rg='ranger'
 
 function vimHK() {
+  CUR=$PWD
+  MODIFIED=${CUR/$HOME/\~}
+  MODIFIED=$(awk -F'/' '{if (NF>2) printf "../%s/%s", $(NF-1), $NF; else print $0}' <<< "$MODIFIED")
   nvim -c "Oil"
 }
+
 function run_ranger () {
     echo
     ranger --choosedir=$HOME/.rangerdir < $TTY
@@ -154,19 +143,16 @@ bindkey "^N" vimHK
 bindkey '^ ' autosuggest-accept
 bindkey '^s' autosuggest-execute
 bindkey '^e' vi-forward-word
-bindkey '^k' up-line-or-search
-bindkey '^j' down-line-or-search
 bindkey '^b' vi-backward-word
 bindkey '^o' vi-beginning-of-line
 bindkey '^a' vi-end-of-line
 bindkey '^E' run_ranger
+bindkey '^u' clear-screen
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# opam configuration
-[[ ! -r /home/kumang/.opam/opam-init/init.zsh ]] || source /home/kumang/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+bindkey -s ^h "tmux-attach-open^M"
+bindkey -s ^f "tmux-sessionizer^M"
+bindkey -s ^y "tmux-cht.sh^M"
 
 # Starship
-# eval "$(starship init zsh)"
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(starship init zsh)"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

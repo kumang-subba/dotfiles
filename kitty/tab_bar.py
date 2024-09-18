@@ -23,8 +23,8 @@ bg_color_bat = as_rgb(color_as_int(opts.color0))
 bg_color_time = as_rgb(color_as_int(opts.color8))
 bg_color_date = as_rgb(color_as_int(opts.color15))
 
-SEPARATOR_SYMBOL = "◗"
-SEPARATOR_SYMBOL_RIGHT = "◖"
+SEPARATOR_SYMBOL = ""
+SEPARATOR_SYMBOL_RIGHT = ""
 RIGHT_MARGIN = 1
 REFRESH_TIME = 1
 ICON = "   "

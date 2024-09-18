@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Check if inside a tmux session
+if [[ -z "$TMUX" ]]; then
+  # Check if any tmux sessions exist
+  if tmux ls &>/dev/null; then
+    # Attach to an existing session
+    tmux attach
+  else
+    # No sessions found, create a new one
+    tmux
+  fi
+else
+  echo "You are already inside a tmux session."
+fi
