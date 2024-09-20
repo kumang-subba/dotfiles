@@ -113,7 +113,8 @@ neve(){
   neovide "$@" & disown
 }
 
-alias nv="nvim"
+alias n="nvim"
+alias nv="neovide"
 alias nev='neovide'
 alias nvz='nvim ~/.zshrc'
 alias nvk='nvim ~/.config/kitty/'
@@ -125,7 +126,8 @@ function vimHK() {
   CUR=$PWD
   MODIFIED=${CUR/$HOME/\~}
   MODIFIED=$(awk -F'/' '{if (NF>2) printf "../%s/%s", $(NF-1), $NF; else print $0}' <<< "$MODIFIED")
-  nvim -c "Oil"
+  kitten @ set-window-title "nvim - $MODIFIED"
+  nvim
 }
 
 function run_ranger () {
@@ -149,6 +151,7 @@ bindkey '^a' vi-end-of-line
 bindkey '^E' run_ranger
 bindkey '^u' clear-screen
 
+bindkey -s ^j "neovide^M"
 bindkey -s ^h "tmux-attach-open^M"
 bindkey -s ^f "tmux-sessionizer^M"
 bindkey -s ^y "tmux-cht.sh^M"
