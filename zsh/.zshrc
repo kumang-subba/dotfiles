@@ -151,7 +151,7 @@ bindkey '^a' vi-end-of-line
 bindkey '^E' run_ranger
 bindkey '^O' clear-screen
 
-bindkey -s ^u "neovide^M"
+bindkey -s ^u "neve^M"
 bindkey -s ^h "tmux-attach-open^M"
 bindkey -s ^f "tmux-sessionizer^M"
 bindkey -s ^y "tmux-cht.sh^M"
