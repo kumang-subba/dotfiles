@@ -122,14 +122,6 @@ alias mkc='f(){ mkdir "$@" && cd "$@";}; f'
 alias e="exit"
 alias rg='ranger'
 
-function vimHK() {
-  CUR=$PWD
-  MODIFIED=${CUR/$HOME/\~}
-  MODIFIED=$(awk -F'/' '{if (NF>2) printf "../%s/%s", $(NF-1), $NF; else print $0}' <<< "$MODIFIED")
-  kitten @ set-window-title "nvim - $MODIFIED"
-  nvim
-}
-
 function run_ranger () {
     echo
     ranger --choosedir=$HOME/.rangerdir < $TTY
@@ -139,9 +131,7 @@ function run_ranger () {
 }
 
 zle -N run_ranger
-zle -N vimHK
 
-bindkey "^N" vimHK
 bindkey '^G' autosuggest-accept
 bindkey '^s' autosuggest-execute
 bindkey '^e' vi-forward-word
@@ -151,6 +141,7 @@ bindkey '^a' vi-end-of-line
 bindkey '^E' run_ranger
 bindkey '^O' clear-screen
 
+bindkey -s ^n "nvim^M"
 bindkey -s ^u "neve^M"
 bindkey -s ^h "tmux-attach-open^M"
 bindkey -s ^f "tmux-sessionizer^M"
