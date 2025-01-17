@@ -145,27 +145,28 @@ def get_battery_cells() -> list:
             status = f.read()
         with open("/sys/class/power_supply/BAT1/capacity", "r") as f:
             percent = int(f.read())
+        key = lambda x: abs(x - percent)
         if status == "Discharging\n":
             # TODO: declare the lambda once and don't repeat the code
             icon_color = UNPLUGGED_COLORS[
-                min(UNPLUGGED_COLORS.keys(), key=lambda x: abs(x - percent))
+                min(UNPLUGGED_COLORS.keys(), key=key)
             ]
             icon = UNPLUGGED_ICONS[
-                min(UNPLUGGED_ICONS.keys(), key=lambda x: abs(x - percent))
+                min(UNPLUGGED_ICONS.keys(), key=key)
             ]
         elif status == "Not charging\n":
             icon_color = UNPLUGGED_COLORS[
-                min(UNPLUGGED_COLORS.keys(), key=lambda x: abs(x - percent))
+                min(UNPLUGGED_COLORS.keys(), key=key)
             ]
             icon = PLUGGED_ICONS[
-                min(PLUGGED_ICONS.keys(), key=lambda x: abs(x - percent))
+                min(PLUGGED_ICONS.keys(), key=key)
             ]
         else:
             icon_color = PLUGGED_COLORS[
-                min(PLUGGED_COLORS.keys(), key=lambda x: abs(x - percent))
+                min(PLUGGED_COLORS.keys(), key=key)
             ]
             icon = PLUGGED_ICONS[
-                min(PLUGGED_ICONS.keys(), key=lambda x: abs(x - percent))
+                min(PLUGGED_ICONS.keys(), key=key)
             ]
         percent_cell = (bat_text_color, str(percent) + "% ", bg_color_bat ,True)
         icon_cell = (icon_color, icon+" ", bg_color_bat , False)

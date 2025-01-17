@@ -1,3 +1,8 @@
+add_newline = false
+
+[line_break]
+disabled = true
+
 palette = "catppuccin_mocha"
 
 [palettes.catppuccin_mocha]
@@ -29,7 +34,7 @@ mantle = "#181825"
 crust = "#11111b"
 
 [character]
-success_symbol = '[➜](bold green)'
+success_symbol = ' [➜](bold green)'
 
 [cmd_duration]
 min_time = 0
@@ -78,3 +83,5 @@ style = "bold #f57800"
 symbol = "🐍"
 pyenv_version_name = true
 
+[docker_context]
+format = "via [🐋 $context](blue bold)"
