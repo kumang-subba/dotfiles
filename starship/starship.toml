@@ -34,11 +34,11 @@ mantle = "#181825"
 crust = "#11111b"
 
 [character]
-success_symbol = ' [➜](bold green)'
+success_symbol = '[➜](bold green)'
 
 [cmd_duration]
-min_time = 0
-format = " took [$duration]($style)"
+min_time = 5_000
+format = " took [$duration]($style) "
 
 [directory]
 truncation_length = 5
