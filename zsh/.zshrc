@@ -8,6 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export EDITOR=nvim
 export VISUAL=nvim
+export LD_LIBRARY_PATH=/usr/local/lib
 
 export ANDROID_HOME=$HOME/Android/Sdk
 # Set name of the theme to load --- if set to "random", it will
@@ -150,3 +151,5 @@ bindkey -s ^y "tmux-cht.sh^M"
 # Starship
 eval "$(starship init zsh)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[[ -s "/home/kumang/.gvm/scripts/gvm" ]] && source "/home/kumang/.gvm/scripts/gvm"
