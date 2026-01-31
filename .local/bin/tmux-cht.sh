@@ -6,10 +6,12 @@ if [[ -z $selected ]]; then
 fi
 
 read -p "Enter Query: " query
+tput cuu1
+tput el
 
 if grep -qs "$selected" ~/.config/tmux/.tmux-cht-languages; then
     query=$(echo "$query" | tr ' ' '+')
-    tmux neww bash -c "curl -s cht.sh/$selected/$query | less"
+    curl -s cht.sh/$selected/$query | less
 else
-    tmux neww bash -c "curl -s cht.sh/$selected~$query | less"
+    curl -s cht.sh/$selected~$query | less
 fi

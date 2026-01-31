@@ -2,6 +2,7 @@
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.config/rofi/scripts:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -72,12 +73,16 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# for docker option stacking
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ubuntu sudo history nvm vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(archlinux docker docker-compose git sudo history nvm vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 # source ~/.nvm/nvm.sh
@@ -110,15 +115,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-neve(){
-  neovide "$@" & disown
-}
 
 alias n="nvim"
-alias nv="neovide"
-alias nev='neovide'
-alias nvz='nvim ~/.zshrc'
-alias nvk='nvim ~/.config/kitty/'
 alias mkc='f(){ mkdir "$@" && cd "$@";}; f'
 alias e="exit"
 alias rg='ranger'
@@ -143,7 +141,6 @@ bindkey '^E' run_ranger
 bindkey '^p' clear-screen
 
 bindkey -s ^n "nvim^M"
-bindkey -s ^u "neve^M"
 bindkey -s ^h "tmux-attach-open^M"
 bindkey -s ^f "tmux-sessionizer^M"
 bindkey -s ^y "tmux-cht.sh^M"
@@ -153,3 +150,6 @@ eval "$(starship init zsh)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [[ -s "/home/kumang/.gvm/scripts/gvm" ]] && source "/home/kumang/.gvm/scripts/gvm"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform

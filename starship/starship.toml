@@ -86,3 +86,6 @@ pyenv_version_name = true
 
 [docker_context]
 format = "via [🐋 $context](blue bold)"
+
+[golang]
+symbol = " "
