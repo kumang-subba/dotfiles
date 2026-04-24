@@ -89,3 +89,11 @@ format = "via [🐋 $context](blue bold)"
 
 [golang]
 symbol = " "
+
+[aws]
+format = 'on [$symbol  $profile]($style) '
+style = 'bold blue'
+symbol = '🅰  ☁️'
+
+[aws.profile_aliases]
+dev = '🥷 dev'
