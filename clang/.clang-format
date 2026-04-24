@@ -13,8 +13,8 @@ BraceWrapping:
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
-BreakBeforeBraces: Custom
-BreakBeforeTernaryOperators: false
+BreakBeforeBraces: Linux
+BreakBeforeTernaryOperators: true
 BreakInheritanceList: BeforeComma
 BreakStringLiterals: false
 ColumnLimit: 109
