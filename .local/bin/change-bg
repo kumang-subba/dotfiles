@@ -16,4 +16,4 @@ BEZIER=".25,.1,.25,1"
 SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION --transition-bezier $BEZIER"
 
 
-swww query || swww-daemon --format argb && swww img -o $focused_monitor ${RANDOMPICS} $SWWW_PARAMS
+awww query || awww-daemon --format argb && awww img -o $focused_monitor ${RANDOMPICS} $SWWW_PARAMS
