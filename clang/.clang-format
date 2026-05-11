@@ -1,13 +1,20 @@
 AccessModifierOffset: -4
-AlignAfterOpenBracket: AlwaysBreak
+AlignAfterOpenBracket: true
 AlignArrayOfStructures: Right
 AlignEscapedNewlines: Left
 AlignOperands: false
+AlignConsecutiveDeclarations:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: true
+  AlignFunctionDeclarations: false
+  AlignFunctionPointers: true
+AlignConsecutiveMacros: AcrossEmptyLinesAndComments
+ColumnLimit: 80
 AllowShortFunctionsOnASingleLine: None
 AlwaysBreakBeforeMultilineStrings: true
 AlwaysBreakTemplateDeclarations: Yes
-BinPackArguments: false
-BinPackParameters: false
+SortIncludes: false
 BraceWrapping:
   AfterEnum: false
   SplitEmptyFunction: false
@@ -16,12 +23,12 @@ BraceWrapping:
 BreakBeforeBraces: Linux
 BreakBeforeTernaryOperators: true
 BreakInheritanceList: BeforeComma
+BreakAfterReturnType: AllDefinitions
 BreakStringLiterals: false
-ColumnLimit: 109
 CompactNamespaces: true
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
 ConstructorInitializerIndentWidth: 8
-ContinuationIndentWidth: 16
+ContinuationIndentWidth: 0
 Cpp11BracedListStyle: false
 ForEachMacros:
   - BITMAP_FOREACH
