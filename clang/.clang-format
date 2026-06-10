@@ -15,12 +15,14 @@ AllowShortFunctionsOnASingleLine: None
 AlwaysBreakBeforeMultilineStrings: true
 AlwaysBreakTemplateDeclarations: Yes
 SortIncludes: false
+BreakBeforeBraces: Custom
 BraceWrapping:
   AfterEnum: false
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
-BreakBeforeBraces: Linux
+  AfterControlStatement: MultiLine
+  AfterFunction: true
 BreakBeforeTernaryOperators: true
 BreakInheritanceList: BeforeComma
 BreakAfterReturnType: AllDefinitions
