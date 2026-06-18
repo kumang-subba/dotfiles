@@ -1,7 +1,92 @@
 add_newline = false
 
-[line_break]
-disabled = true
+format = """
+$username\
+$os\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$hg_state\
+$pijul_channel\
+$docker_context\
+$package\
+$bun\
+$c\
+$cmake\
+$cobol\
+$cpp\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$fortran\
+$gleam\
+$golang\
+$gradle\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$maven\
+$mojo\
+$nim\
+$nodejs\
+$ocaml\
+$odin\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$quarto\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$typst\
+$vlang\
+$vagrant\
+$xmake\
+$zig\
+$buf\
+$guix_shell\
+$nix_shell\
+$conda\
+$pixi\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$direnv\
+$env_var\
+$mise\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$character
+"""
 
 palette = "catppuccin_mocha"
 
@@ -33,19 +118,25 @@ base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
 
+# [character]
+# success_symbol = '[](bold green)'
+# error_symbol = '[󰟿](bold red) '
+
 [character]
-success_symbol = '[](bold green)'
-error_symbol = '[󰟿](bold red) '
+format = "[╰─](green)$symbol "
+success_symbol = '[󰁔](fg:bold green)'
+error_symbol = '[󰞔](fg:bold red)'
 
 [cmd_duration]
-min_time = 5_000
-format = " took [$duration]($style) "
+min_time = 150
+show_milliseconds = true
 
 [directory]
 truncation_length = 8
 truncate_to_repo = true
 read_only = "🔒"
 read_only_style= "bold white"
+format = " in [$path]($style)[$read_only]($read_only_style) "
 
 [git_commit]
 commit_hash_length = 4
@@ -110,6 +201,6 @@ disabled = false
 [username]
 style_user = 'green bold italic'
 style_root = 'red bold'
-format = '[$user]($style): '
+format = '[╭───]($style)[$user]($style) '
 disabled = false
 show_always = true
