@@ -129,7 +129,7 @@ error_symbol = '[󰞔](fg:bold red)'
 
 [cmd_duration]
 min_time = 150
-show_milliseconds = true
+format = '[$duration](italic yellow)'
 
 [directory]
 truncation_length = 8
