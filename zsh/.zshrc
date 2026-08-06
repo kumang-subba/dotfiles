@@ -119,7 +119,6 @@ source $ZSH/oh-my-zsh.sh
 alias n="nvim"
 alias mkc='f(){ mkdir "$@" && cd "$@";}; f'
 alias e="exit"
-alias rg='ranger'
 # shellcheck shell=bash
 
 # =============================================================================
@@ -286,7 +285,6 @@ bindkey '^e' vi-forward-word
 bindkey '^b' vi-backward-word
 bindkey '^o' vi-beginning-of-line
 bindkey '^a' vi-end-of-line
-bindkey '^E' run_ranger
 bindkey '^p' clear-screen
 
 bindkey -s ^n "nvim^M"
@@ -294,11 +292,46 @@ bindkey -s ^h "tmux-attach-open^M"
 bindkey -s ^f "tmux-sessionizer^M"
 bindkey -s ^y "tmux-cht.sh^M"
 
+# eza binds
+alias ls='eza --icons'
+# Detailed listing
+alias ll='eza -lh --icons --git'
+# Detailed listing including hidden files
+alias la='eza -lah --icons --git'
+# Tree view
+alias tree='eza --tree --icons'
+compdef eza=ls
+
+# superfile
+spf() {
+    os=$(uname -s)
+
+    # Linux
+    if [[ "$os" == "Linux" ]]; then
+        export SPF_LAST_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/superfile/lastdir"
+    fi
+
+    # macOS
+    if [[ "$os" == "Darwin" ]]; then
+        export SPF_LAST_DIR="$HOME/Library/Application Support/superfile/lastdir"
+    fi
+
+    command spf "$@"
+
+    [ ! -f "$SPF_LAST_DIR" ] || {
+        . "$SPF_LAST_DIR"
+        rm -f -- "$SPF_LAST_DIR" > /dev/null
+    }
+}
+
+bindkey -s '^E' "spf^M"
+
 # Starship
 eval "$(starship init zsh)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [[ -s "/home/kumang/.gvm/scripts/gvm" ]] && source "/home/kumang/.gvm/scripts/gvm"
+
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
