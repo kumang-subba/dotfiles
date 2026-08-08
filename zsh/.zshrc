@@ -302,6 +302,8 @@ alias la='eza -lah --icons --git'
 alias tree='eza --tree --icons'
 compdef eza=ls
 
+alias cdd='cd ~/dotfiles'
+
 # superfile
 spf() {
     os=$(uname -s)
