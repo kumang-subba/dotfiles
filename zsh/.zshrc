@@ -82,7 +82,7 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux docker docker-compose git sudo history nvm vi-mode colored-man-pages alias-finder zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(archlinux docker docker-compose git sudo history nvm vi-mode colored-man-pages alias-finder systemd zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 # source ~/.nvm/nvm.sh
@@ -122,7 +122,6 @@ zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
 zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
 
 
-alias n="nvim"
 alias mkc='f(){ mkdir "$@" && cd "$@";}; f'
 alias e="exit"
 # shellcheck shell=bash
