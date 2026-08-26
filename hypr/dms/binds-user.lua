@@ -17,6 +17,7 @@ hl.bind("SUPER + B", hl.dsp.exec_cmd(terminal .. "-e btop"))
 hl.bind("SUPER + G", hl.dsp.exec_cmd(terminal .. "-e lazydocker"))
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("gnome-calculator"))
 hl.bind("SUPER + CTRL + SPACE", hl.dsp.exec_cmd("change-bg"))
+hl.bind("SUPER + SHIFT + Q", hl.dsp.window.close())
 
 -- WINDOW MOVEMENTS
 hl.bind("SUPER + CTRL + left", hl.dsp.window.move({ direction = "l" }))

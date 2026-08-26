@@ -8,8 +8,8 @@ hl.window_rule({ match = { class = ".*(Webcord)$" }, workspace = "6" })
 
 local dynamic_opactiy = hl.window_rule({
 	name = "dynamic_opactiy",
-	match = { class = ".*" },
-	opacity = "0.95 override 0.85 override",
+	match = { class = "com.mitchellh.ghostty" },
+	opacity = "0.90 override 0.80 override",
 })
 
 hl.bind("SUPER + BACKSPACE", function()
