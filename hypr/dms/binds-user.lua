@@ -4,7 +4,7 @@ local scriptsDir = "$HOME/.config/hypr/scripts"
 local terminal = "uwsm app -- $TERMINAL "
 
 -- APPS
-hl.bind("SUPER + Return", hl.dsp.exec_cmd("ghostty"))
+hl.bind("SUPER + Return", hl.dsp.exec_cmd("alacritty"))
 hl.bind("SUPER + T", hl.dsp.exec_cmd("uwsm app -- nautilus --new-window"))
 
 -- Brave

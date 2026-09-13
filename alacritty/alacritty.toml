@@ -1,4 +1,4 @@
-general.import = [ "~/.config/omarchy/current/theme/alacritty.toml" ]
+general.import = [ "~/.config/alacritty/dank-theme.toml" ]
 
 [env]
 TERM = "xterm-256color"
@@ -7,7 +7,7 @@ TERM = "xterm-256color"
 normal = { family = "Iosevka Term Italics" }
 bold = { family = "Iosevka Term Italics" }
 italic = { family = "Iosevka Term Italics" }
-size = 13
+size = 15
 
 [window]
 padding.x = 14

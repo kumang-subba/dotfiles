@@ -85,6 +85,7 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 plugins=(archlinux docker docker-compose git sudo history nvm vi-mode colored-man-pages alias-finder systemd zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+source /etc/profile.d/emscripten.sh
 # source ~/.nvm/nvm.sh
 # User configuration
 

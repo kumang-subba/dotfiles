@@ -1,7 +1,7 @@
 #!/bin/bash
 
 editor=nvim
-tty=ghostty
+tty=alacritty
 
 dotsDir="$HOME/dotfiles"
 
