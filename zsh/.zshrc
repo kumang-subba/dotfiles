@@ -3,6 +3,7 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.config/rofi/scripts:$PATH
+export PATH=$HOME/.config/emacs/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -100,7 +101,7 @@ source /etc/profile.d/emscripten.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
+#
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
 
@@ -298,13 +299,14 @@ bindkey -s ^f "tmux-sessionizer^M"
 bindkey -s ^y "tmux-cht.sh^M"
 
 # eza binds
-alias ls='eza --icons'
+alias ls='eza --icons always'
+alias l='ls'
 # Detailed listing
 alias ll='eza -lh --icons --git'
 # Detailed listing including hidden files
 alias la='eza -lah --icons --git'
 # Tree view
-alias tree='eza --tree --icons'
+alias tree='eza --tree --icons always'
 compdef eza=ls
 
 alias cdd='cd ~/dotfiles'

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 editor=nvim
-tty=alacritty
+tty=$TERMINAL
 
 hyprConfigs="$HOME/.config/hypr"
 
