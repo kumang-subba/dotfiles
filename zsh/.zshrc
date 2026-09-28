@@ -3,7 +3,7 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.config/rofi/scripts:$PATH
-export PATH=$HOME/.config/emacs/bin:$PATH
+export PATH=$HOME/.emacs.d/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

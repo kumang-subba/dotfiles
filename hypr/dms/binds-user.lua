@@ -10,7 +10,6 @@ hl.bind("SUPER + T", hl.dsp.exec_cmd("uwsm app -- nautilus --new-window"))
 -- Brave
 -- hl.bind("SUPER + W", hl.dsp.exec_cmd("LIBVA_DRIVER_NAME=iHD LIBVA_DEVICE_NAME=/dev/dri/renderD129 brave"))
 hl.bind("SUPER + W", hl.dsp.exec_cmd("zen-browser"))
-hl.bind("SUPER + E", hl.dsp.exec_cmd(scriptsDir .. "/QuickEdit.sh"))
 hl.bind("SUPER + D", hl.dsp.exec_cmd(scriptsDir .. "/QuickEditDots.sh"))
 hl.bind("SUPER + P", hl.dsp.exec_cmd(scriptsDir .. "/QuickScreenThings.sh"))
 hl.bind("SUPER + B", hl.dsp.exec_cmd(terminal .. "-e btop"))
