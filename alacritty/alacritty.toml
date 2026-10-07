@@ -13,6 +13,7 @@ size = 14
 padding.x = 14
 padding.y = 14
 decorations = "None"
+startup_mode = "Fullscreen"
 
 [keyboard]
 bindings = [
