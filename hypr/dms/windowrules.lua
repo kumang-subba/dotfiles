@@ -18,3 +18,9 @@ hl.window_rule({ match = { class = ".*(Webcord)$" }, workspace = "6" })
 
 -- DMS-RULE: id=dms-floating-windows, name=DMS Floating Windows
 hl.window_rule({ match = { class = "^com.danklinux.dms$" }, float = true })
+
+-- DMS-RULE: id=dms_rule_6, name=
+hl.window_rule({ match = { class = "^Alacritty$" }, opacity = 0.9 })
+
+-- DMS-RULE: id=dms_rule_7, name=
+hl.window_rule({ match = { class = "^Emacs$" }, opacity = 0.9 })

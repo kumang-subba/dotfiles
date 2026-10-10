@@ -27,4 +27,7 @@ vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Telescope Find keym
 vim.keymap.set("n", "<leader>fn", function()
 	builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "Telescope find files" })
+vim.keymap.set("n", "<leader>fh", function()
+	builtin.find_files({ cwd = vim.fn.expand("%:p:h") })
+end, { desc = "Telescope Find Files in Current File Directory" })
 vim.keymap.set("n", "<leader>fb>", builtin.buffers, { desc = "Telescope Find existing buffers" })

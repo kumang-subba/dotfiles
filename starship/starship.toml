@@ -132,7 +132,7 @@ format = '[$duration](italic yellow)'
 [directory]
 truncation_length = 8
 truncate_to_repo = true
-read_only = "🔒"
+read_only = " 🔒"
 read_only_style= "bold white"
 format = " in [$path]($style)[$read_only]($read_only_style) "
 
