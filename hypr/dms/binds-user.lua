@@ -4,7 +4,25 @@ local scriptsDir = "$HOME/.config/hypr/scripts"
 local terminal = "uwsm app -- $TERMINAL "
 
 -- APPS
-hl.bind("SUPER + Return", hl.dsp.exec_cmd(terminal))
+hl.bind("SUPER + Return", function()
+	local alacrity_special = hl.get_windows({ title = "Alacritty Special Workspace" })
+	if #alacrity_special < 1 then
+		hl.dispatch(hl.dsp.exec_cmd("uwsm app -- $TERMINAL -T 'Alacritty Special Workspace'"))
+	else
+		hl.dispatch(hl.dsp.workspace.toggle_special("alacritty"))
+	end
+end)
+
+hl.bind("SUPER + E", function()
+	local emacs_special = hl.get_windows({ class = "Emacs" })
+	if #emacs_special < 1 then
+		hl.dispatch(hl.dsp.exec_cmd("emacsclient -c -a emacs"))
+	else
+		hl.dispatch(hl.dsp.workspace.toggle_special("emacs"))
+	end
+end)
+
+hl.bind("SUPER + SHIFT + Return", hl.dsp.exec_cmd(terminal))
 hl.bind("SUPER + T", hl.dsp.exec_cmd("uwsm app -- nautilus --new-window"))
 
 -- Brave
@@ -16,7 +34,7 @@ hl.bind("SUPER + P", hl.dsp.exec_cmd(scriptsDir .. "/QuickScreenThings.sh"))
 hl.bind("SUPER + B", hl.dsp.exec_cmd(terminal .. "-e btop"))
 hl.bind("SUPER + G", hl.dsp.exec_cmd(terminal .. "-e lazydocker"))
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("gnome-calculator"))
-hl.bind("SUPER + E", hl.dsp.exec_cmd("emacsclient -c -a emacs"))
+-- hl.bind("SUPER + E", hl.dsp.exec_cmd("emacsclient -c -a emacs"))
 hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("systemctl --user restart emacs.service"))
 hl.bind("SUPER + CTRL + SPACE", hl.dsp.exec_cmd("change-bg"))
 hl.bind("SUPER + SHIFT + Q", hl.dsp.window.close())
@@ -30,7 +48,26 @@ hl.bind("SUPER + CTRL + H", hl.dsp.window.move({ direction = "l" }))
 hl.bind("SUPER + CTRL + J", hl.dsp.window.move({ direction = "d" }))
 hl.bind("SUPER + CTRL + K", hl.dsp.window.move({ direction = "u" }))
 hl.bind("SUPER + CTRL + L", hl.dsp.window.move({ direction = "r" }))
-hl.bind("SUPER + U", hl.dsp.workspace.toggle_special("special"))
+hl.bind("SUPER + S", function()
+	local ws = hl.get_active_special_workspace() or hl.get_active_workspace()
+	-- hl.notification.create({ text = ws.name, timeout = 15000, icon = "info", font_size = 20 })
+	if ws.name:match("special") then
+		local name = ws.name:gsub("^special:", "")
+		hl.dispatch(hl.dsp.workspace.toggle_special(name))
+	else
+		hl.dispatch(hl.dsp.workspace.toggle_special("special"))
+	end
+end)
+hl.bind("SUPER + U", function()
+	local ws = hl.get_active_special_workspace() or hl.get_active_workspace()
+	if ws.name:match("special") then
+		local name = ws.name:gsub("^special:", "")
+		hl.dispatch(hl.dsp.workspace.toggle_special(name))
+	else
+		hl.dispatch(hl.dsp.workspace.toggle_special("special"))
+	end
+end)
+hl.bind("SUPER + CTRL + S", hl.dsp.window.move({ workspace = "special" }))
 hl.bind("SUPER + CTRL + U", hl.dsp.window.move({ workspace = "special" }))
 
 -- === Monitor Navigation ===

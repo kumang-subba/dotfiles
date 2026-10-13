@@ -10,6 +10,11 @@ hl.on("hyprland.start", function()
 end)
 -- DMS_STARTUP_END
 
+-- env
+hl.env("LIBVA_DRIVER_NAME", "nvidia")
+hl.env("GBM_BACKEND", "nvidia-drm")
+hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+
 hl.config({
 	input = {
 		-- empty inherits XKB_DEFAULT_LAYOUT (libxkbcommon), falls back to "us"
@@ -50,6 +55,7 @@ hl.config({
 			vibrancy = 0.35,
 			vibrancy_darkness = 0.35,
 		},
+		dim_special = 0,
 	},
 	misc = {
 		disable_hyprland_logo = true,
@@ -67,6 +73,7 @@ hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, bezier = "default"
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, bezier = "default" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "default" })
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 4, bezier = "default" })
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 4, style = "fade", bezier = "default" })
 hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "default" })
 hl.animation({ leaf = "border", enabled = true, speed = 3, bezier = "default" })
 
@@ -79,7 +86,11 @@ hl.window_rule({ match = { class = "^(org\\.gnome\\.Calculator)$" }, float = tru
 hl.window_rule({ match = { class = "^(gnome-calculator)$" }, float = true })
 hl.window_rule({ match = { class = "^(galculator)$" }, float = true })
 hl.window_rule({ match = { class = "^(blueman-manager)$" }, float = true })
-hl.window_rule({ match = { class = "^(org\\.gnome\\.Nautilus)$" }, float = true })
+hl.window_rule({
+	match = { class = "^(org\\.gnome\\.Nautilus)$" },
+	float = true,
+	opacity = 0.9,
+})
 hl.window_rule({ match = { class = "^(xdg-desktop-portal)$" }, float = true })
 hl.window_rule({
 	match = { class = "^(steam)$", title = "^(notificationtoasts)" },
@@ -101,3 +112,5 @@ require("dms.cursor")
 require("dms.binds")
 require("dms.binds-user")
 require("dms.windowrules")
+require("user.windowrules")
+require("user.events")
