@@ -3,9 +3,6 @@ hl.workspace_rule({ workspace = "special:emacs" })
 
 hl.window_rule({
 	match = { title = "^Alacritty Special Workspace$" },
-	float = true,
-	opacity = 0.9,
-	size = { "(monitor_w*0.85)", "(monitor_h*0.85)" },
 	workspace = "special:alacritty",
 })
 
