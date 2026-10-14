@@ -55,7 +55,17 @@ hl.bind("SUPER + S", function()
 		local name = ws.name:gsub("^special:", "")
 		hl.dispatch(hl.dsp.workspace.toggle_special(name))
 	else
-		hl.dispatch(hl.dsp.workspace.toggle_special("special"))
+		local windows = hl.get_windows()
+		local special_name = nil
+
+		for _, win in pairs(windows) do
+			local workspace = win.workspace
+			if workspace and workspace.name:match("^special") then
+				special_name = workspace.name:gsub("^special:", "")
+				break
+			end
+		end
+		hl.dispatch(hl.dsp.workspace.toggle_special(special_name or "special"))
 	end
 end)
 hl.bind("SUPER + U", function()
@@ -64,7 +74,17 @@ hl.bind("SUPER + U", function()
 		local name = ws.name:gsub("^special:", "")
 		hl.dispatch(hl.dsp.workspace.toggle_special(name))
 	else
-		hl.dispatch(hl.dsp.workspace.toggle_special("special"))
+		local windows = hl.get_windows()
+		local special_name = nil
+
+		for _, win in pairs(windows) do
+			local workspace = win.workspace
+			if workspace and workspace.name:match("^special") then
+				special_name = workspace.name:gsub("^special:", "")
+				break
+			end
+		end
+		hl.dispatch(hl.dsp.workspace.toggle_special(special_name or "special"))
 	end
 end)
 hl.bind("SUPER + CTRL + S", hl.dsp.window.move({ workspace = "special" }))
