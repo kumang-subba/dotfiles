@@ -39,7 +39,7 @@ hl.config({
 		rounding = 12,
 		shadow = {
 			enabled = true,
-			range = 30,
+			range = 50,
 			render_power = 5,
 			offset = "0 5",
 			color = "rgba(00000070)",
@@ -73,7 +73,16 @@ hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, bezier = "default"
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, bezier = "default" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "default" })
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 4, bezier = "default" })
-hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 4, style = "fade", bezier = "default" })
+hl.curve("specWsSpring", { type = "spring", mass = 1, stiffness = 200, dampening = 20 })
+-- hl.curve("overshoot", { type = "bezier", points = { { 0.5, 0.9 }, { 0.1, 1.1 } } })
+hl.animation({
+	leaf = "specialWorkspace",
+	enabled = true,
+	speed = 3,
+	style = "slidefadevert",
+	spring = "specWsSpring",
+	-- bezier = "overshoot",
+})
 hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "default" })
 hl.animation({ leaf = "border", enabled = true, speed = 3, bezier = "default" })
 
