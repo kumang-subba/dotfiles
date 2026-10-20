@@ -44,11 +44,14 @@ screenrecording_active() {
 }
 
 if screenrecording_active; then
+  dms ipc call widget hide screenRecording
   stop_screenrecording
 elif [[ "$SCOPE" == "output" ]]; then
   output=$(slurp -o) || exit 1
   start_screenrecording -g "$output"
+  dms ipc call widget reveal screenRecording
 else
   region=$(slurp) || exit 1
   start_screenrecording -g "$region"
+  dms ipc call widget reveal screenRecording
 fi
