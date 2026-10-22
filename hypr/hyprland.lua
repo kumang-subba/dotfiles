@@ -73,12 +73,12 @@ hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, bezier = "default"
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, bezier = "default" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "default" })
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 4, bezier = "default" })
-hl.curve("specWsSpring", { type = "spring", mass = 1, stiffness = 200, dampening = 20 })
+hl.curve("specWsSpring", { type = "spring", mass = 1, stiffness = 220, dampening = 20 })
 -- hl.curve("overshoot", { type = "bezier", points = { { 0.5, 0.9 }, { 0.1, 1.1 } } })
 hl.animation({
 	leaf = "specialWorkspace",
 	enabled = true,
-	speed = 3,
+	speed = 2,
 	style = "slidefadevert",
 	spring = "specWsSpring",
 	-- bezier = "overshoot",

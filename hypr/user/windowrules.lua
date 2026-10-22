@@ -36,3 +36,11 @@ hl.window_rule({
 	rounding = 20,
 	size = { "(monitor_w*0.85)", "(monitor_h*0.85)" },
 })
+
+hl.window_rule({
+	match = { class = "^ueberzugpp.*" },
+	float = true,
+	rounding = 20,
+	no_initial_focus = true,
+	size = { "(monitor_w*0.70)", "(monitor_h*0.70)" },
+})
