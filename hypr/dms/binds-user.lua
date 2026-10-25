@@ -14,11 +14,37 @@ hl.bind("SUPER + Return", function()
 end)
 
 hl.bind("SUPER + E", function()
-	local emacs_special = hl.get_windows({ class = "Emacs" })
-	if #emacs_special < 1 then
+	local act_w = hl.get_active_window()
+	local act_sw = hl.get_active_special_workspace()
+	local emacs_w = hl.get_windows({ class = "Emacs" })
+	if #emacs_w < 1 then
 		hl.dispatch(hl.dsp.exec_cmd("emacsclient -c -a emacs"))
 	else
-		hl.dispatch(hl.dsp.workspace.toggle_special("emacs"))
+		if act_w ~= nil and act_w.class == "Emacs" and act_sw ~= nil and act_sw.name == "special:emacs" then
+			hl.dispatch(hl.dsp.workspace.toggle_special("emacs"))
+		else
+			hl.dispatch(hl.dsp.focus({
+				window = emacs_w[1],
+			}))
+		end
+	end
+end)
+
+hl.bind("SUPER + CTRL + E", function()
+	local act_w = hl.get_active_window()
+	local act_sw = hl.get_active_special_workspace()
+	local emacs_w = hl.get_windows({ class = "Emacs" })
+	if #emacs_w < 1 then
+		hl.dispatch(hl.dsp.exec_cmd("emacsclient -c -a emacs"))
+	else
+		if act_w ~= nil and act_w.class == "Emacs" and act_sw == nil then
+			hl.dispatch(hl.dsp.window.move({
+				window = emacs_w[1],
+				workspace = "special:emacs",
+				follow = true,
+			}))
+		else
+		end
 	end
 end)
 
