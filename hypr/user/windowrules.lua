@@ -16,11 +16,20 @@ hl.window_rule({
 
 hl.window_rule({
 	match = { class = "^Emacs$" },
+	workspace = "special:emacs",
+})
+
+hl.window_rule({
+	workspace = "special:emacs",
+	opacity = "0.9 0.8",
+})
+
+hl.window_rule({
+	match = { class = "^Emacs$" },
 	float = true,
 	opacity = "0.9 0.8",
 	rounding = 20,
 	size = { "(monitor_w*0.85)", "(monitor_h*0.85)" },
-	workspace = "special:emacs",
 })
 
 hl.window_rule({
