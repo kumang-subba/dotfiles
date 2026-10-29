@@ -40,12 +40,16 @@ hl.config({
 		shadow = {
 			enabled = true,
 			range = 50,
-			render_power = 5,
+			render_power = 4,
 			offset = "0 5",
 			color = "rgba(00000070)",
 		},
 		blur = {
 			enabled = true,
+			variant = "acrylic",
+			acrylic = {
+				bulb = 100,
+			},
 			passes = 2,
 			noise = 0,
 			size = 10,
