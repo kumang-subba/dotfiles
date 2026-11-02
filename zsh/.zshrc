@@ -276,28 +276,6 @@ fi
 #
 # eval "$(zoxide init zsh)"
 
-function run_ranger () {
-    echo
-    ranger --choosedir=$HOME/.rangerdir < $TTY
-    LASTDIR=`cat $HOME/.rangerdir`
-    cd "$LASTDIR"
-    zle accept-line
-}
-
-zle -N run_ranger
-
-bindkey '^G' autosuggest-accept
-bindkey '^s' autosuggest-execute
-bindkey '^e' vi-forward-word
-bindkey '^b' vi-backward-word
-bindkey '^o' vi-beginning-of-line
-bindkey '^a' vi-end-of-line
-
-bindkey -s ^n "nvim^M"
-bindkey -s ^h "tmux-attach-open^M"
-bindkey -s ^f "tmux-sessionizer^M"
-bindkey -s ^y "tmux-cht.sh^M"
-
 # eza binds
 alias ls='eza --icons always'
 alias l='ls'
@@ -314,30 +292,6 @@ alias cat='bat'
 
 alias cdd='cd ~/dotfiles'
 
-# superfile
-spf() {
-    os=$(uname -s)
-
-    # Linux
-    if [[ "$os" == "Linux" ]]; then
-        export SPF_LAST_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/superfile/lastdir"
-    fi
-
-    # macOS
-    if [[ "$os" == "Darwin" ]]; then
-        export SPF_LAST_DIR="$HOME/Library/Application Support/superfile/lastdir"
-    fi
-
-    command spf "$@"
-
-    [ ! -f "$SPF_LAST_DIR" ] || {
-        . "$SPF_LAST_DIR"
-        rm -f -- "$SPF_LAST_DIR" > /dev/null
-    }
-}
-
-bindkey -s '^E' "spf^M"
-
 # Starship
 eval "$(starship init zsh)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -347,3 +301,5 @@ eval "$(starship init zsh)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+[[ -f ~/dotfiles/zsh/binds.zsh ]] && source ~/dotfiles/zsh/binds.zsh
