@@ -84,7 +84,6 @@ hl.bind("SUPER + S", function()
 	else
 		local windows = hl.get_windows()
 		local special_name = nil
-
 		for _, win in pairs(windows) do
 			local workspace = win.workspace
 			if workspace and workspace.name:match("^special") then
