@@ -67,7 +67,6 @@ bindkey '^R' fh
 
 bindkey '^G' autosuggest-accept
 bindkey '^s' autosuggest-execute
-bindkey '^e' vi-forward-word
 bindkey '^b' vi-backward-word
 bindkey '^o' vi-beginning-of-line
 bindkey '^a' vi-end-of-line
