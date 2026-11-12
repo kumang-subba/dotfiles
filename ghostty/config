@@ -53,4 +53,4 @@ gtk-single-instance = true
 # Dank color generation
 theme = dankcolors
 
-custom-shader = shaders/ghostty-smooth-caret/smooth-caret.glsl
+# custom-shader = shaders/ghostty-smooth-caret/smooth-caret.glsl

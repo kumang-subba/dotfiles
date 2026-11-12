@@ -5,13 +5,14 @@ local terminal = "uwsm app -- $TERMINAL "
 
 -- APPS
 hl.bind("SUPER + Return", function()
-	-- local term_special = hl.get_windows({ title = "Alacritty Special Workspace" })
-	local term_special = hl.get_windows({ title = "Ghostty Special Workspace" })
+	local term_special = hl.get_windows({ title = "Alacritty Special Workspace" })
+	-- local term_special = hl.get_windows({ title = "Ghostty Special Workspace" })
 	if #term_special < 1 then
-		-- hl.dispatch(hl.dsp.exec_cmd("uwsm app -- $TERMINAL -T 'Alacritty Special Workspace'"))
-		hl.dispatch(hl.dsp.exec_cmd("uwsm app -- $TERMINAL --title='Ghostty Special Workspace'"))
+		hl.dispatch(hl.dsp.exec_cmd("uwsm app -- $TERMINAL -T 'Alacritty Special Workspace'"))
+		-- hl.dispatch(hl.dsp.exec_cmd("uwsm app -- $TERMINAL --title='Ghostty Special Workspace'"))
 	else
-		hl.dispatch(hl.dsp.workspace.toggle_special("ghostty"))
+		hl.dispatch(hl.dsp.workspace.toggle_special("alacritty"))
+		-- hl.dispatch(hl.dsp.workspace.toggle_special("ghostty"))
 	end
 end)
 
