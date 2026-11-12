@@ -9,7 +9,20 @@ hl.window_rule({
 hl.window_rule({
 	match = { class = "^Alacritty$" },
 	float = true,
-	opacity = "0.9 0.8",
+	opacity = "0.95 0.85",
+	rounding = 20,
+	size = { "(monitor_w*0.85)", "(monitor_h*0.85)" },
+})
+
+hl.window_rule({
+	match = { title = "^Ghostty Special Workspace$" },
+	workspace = "special:ghostty",
+})
+
+hl.window_rule({
+	match = { class = "^com.mitchellh.ghostty$" },
+	float = true,
+	opacity = "0.95 0.85",
 	rounding = 20,
 	size = { "(monitor_w*0.85)", "(monitor_h*0.85)" },
 })
@@ -21,13 +34,13 @@ hl.window_rule({
 
 hl.window_rule({
 	workspace = "special:emacs",
-	opacity = "0.9 0.8",
+	opacity = "0.95 0.85",
 })
 
 hl.window_rule({
 	match = { class = "^Emacs$" },
 	float = true,
-	opacity = "0.9 0.8",
+	opacity = "0.95 0.85",
 	rounding = 20,
 	size = { "(monitor_w*0.85)", "(monitor_h*0.85)" },
 })

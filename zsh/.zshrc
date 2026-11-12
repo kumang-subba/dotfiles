@@ -287,8 +287,6 @@ alias la='eza -lah --icons --git'
 alias tree='eza --tree --icons always'
 compdef eza=ls
 
-alias cat='bat'
-# compdef bat=cat
 
 alias cdd='cd ~/dotfiles'
 
