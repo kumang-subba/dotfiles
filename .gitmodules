@@ -1,3 +1,6 @@
 [submodule "config.nvim"]
 	path = config.nvim
 	url = https://github.com/kumang-subba/config.nvim
+[submodule "nvim"]
+	path = nvim
+	url = git@github.com:kumang-subba/config.nvim.git
