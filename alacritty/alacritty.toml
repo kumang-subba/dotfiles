@@ -33,5 +33,6 @@ smooth_motion_max_stretch_x = 1.0
 smooth_motion_max_stretch_y = 1.0
 
 # see: https://github.com/kumang-subba/alacritty-smooth-cursor/tree/max-smooth-motion-distance
-smooth_motion_max_distance = 15
+smooth_motion_max_distance_x = 50
+smooth_motion_max_distance_y = 10
 # Override "block" cursor if you don't like how it looks in this fork

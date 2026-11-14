@@ -64,5 +64,6 @@ hl.window_rule({
 	float = true,
 	rounding = 20,
 	no_initial_focus = true,
-	size = { "(monitor_w*0.70)", "(monitor_h*0.70)" },
+	move = { "window_w * 2", "0" },
+	-- size = { "(monitor_w*0.70)", "(monitor_h*0.70)" },
 })
