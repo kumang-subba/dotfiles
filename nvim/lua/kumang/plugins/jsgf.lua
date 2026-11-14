@@ -1,3 +1,0 @@
-return {
-	"hotoo/jsgf.vim",
-}
